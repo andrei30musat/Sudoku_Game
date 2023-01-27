@@ -10,24 +10,26 @@ board = [
     [0,4,9,2,0,6,0,0,7]
 ]
 
-def solve(board):
-    find = find_empty(board)
-    if not find:
-        return True
-    else:
-        row, col = find
+def print_board(board):
+    for i in range(len(board[0])):
+        if i % 3 == 0 and i != 0:
+            print("- - - - - - - - - - - ")
 
-    for i in range(1,10):
-        if valid(board, i, row, col ):
-            board[row][col] = i
+        for j in range(len(board[0])):
+            if j % 3 == 0 and j != 0:
+                print("| ", end="")
 
-            if solve(board):
-                return True
+            if j == 8:
+                print(board[i][j])
+            else:
+                print(board[i][j] , end=" ")
 
-            board[row][col] = 0
 
-    return False
-
+def find_empty(board):
+    for i in range(len(board[0])):
+        for j in range(len(board[0])):
+            if board[i][j] == 0:
+                return (i, j)  # linia si coloana
 
 def valid(board, num, row, col):
     #num e numarul pe care vrem sa l introducem
@@ -54,30 +56,25 @@ def valid(board, num, row, col):
 
     return True
 
+def solve(board):
+    find = find_empty(board)
+    if not find:
+        return True
+    else:
+        row, col = find
 
-def print_board(board):
-    for i in range(len(board[0])):
-        if i % 3 == 0 and i != 0:
-            print("- - - - - - - - - - - ")
+    for i in range(1,10):
+        if valid(board, i, row, col ):
+            board[row][col] = i
 
-        for j in range(len(board[0])):
-            if j % 3 == 0 and j != 0:
-                print("| ", end="")
+            if solve(board):
+                return True
 
-            if j == 8:
-                print(board[i][j])
-            else:
-                print(board[i][j] , end=" ")
+            board[row][col] = 0
 
-
-def find_empty(board):
-    for i in range(len(board[0])):
-        for j in range(len(board[0])):
-            if board[i][j] == 0:
-                return (i, j)  # linia si coloana
-
+    return False
 
 print_board(board)
-solve(board)
 print("=====================")
+solve(board)
 print_board(board)
