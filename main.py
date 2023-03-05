@@ -76,8 +76,9 @@ def find_empty(board):
             if board[i][j] == 0:
                 return (i, j)  # linia si coloana
 
-
+"""
 print_board(board)
 solve(board)
 print("=====================")
 print_board(board)
+"""
