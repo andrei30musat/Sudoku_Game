@@ -6,6 +6,7 @@
 📌 The project also contains a graphical user interface (GUI) for the game of Sudoku. 
 
 ## *Algorithm*✨
+> Backtracking Algorithm
 - Find some empty space
 - Attempt to place the digits 1-9 in that space
 - Check if that digit is valid in the current spot based on the current board
