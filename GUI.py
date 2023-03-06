@@ -1,5 +1,5 @@
 import pygame, random, time
-from main import solve, valid
+from solver import solve, valid
 from input import boards
 pygame.font.init()
 
@@ -77,7 +77,7 @@ class Grid:
         self.model = [[self.cubes[i][j].value for j in range(self.cols)] for i in range(self.rows)]
 
     def sketch(self, val):
-        #Retin valoarea temporar pana cand utilizaotrul introduce un numar si nu alt tip de caracter
+        #Retin valoarea temporar pana cand utilizaotrul apasa enter(schitez)
         row, col = self.selected
         self.cubes[row][col].set_temp(val)
 
