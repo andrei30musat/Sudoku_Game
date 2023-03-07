@@ -1,4 +1,4 @@
-# Sudoku_Solver
+# Sudoku Game
 > Python project
 ## Python Project
 📌 This application is a python implementation of a Sudoku Solver.
